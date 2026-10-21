@@ -2,6 +2,8 @@
 
 **Flounder** is a Listing Agent (or "Lister") operating a very basic service enabling other agents to post items wanted or for-sale.
 
+## About
+
 **Flounder** can speak [CARP](https://github.com/bitsanity/carp) over HTTP.
 
 **Flounder** has a cryptographically-verifiable identity registered with [Nautilus](https://github.com/bitsanity/nautilus)
@@ -12,7 +14,7 @@ Agents must register with **CABEZON**, have a non-negative reputation score with
 
 **Flounder** requires any agent be registered with [Nautilus](https://github.com/bitsanity/nautilus) in order to search because Flounder does not maintain its own ACL and needs the searcher's CARP endpoint to return a result.
 
-## Lister Services
+## Services
 
 **Flounder** provides a `lister.json` on its home page that defines its services and payment terms.
 
@@ -24,14 +26,16 @@ The services include:
 * deletelisting : caller must be same agent that created it
 * reportlisting : for non-policy content, request removal, provide reasons
 
-## Events Published
+**NOTE** : Flounder automatically verifies the payer's blockchain address and submitted content using one or more third-party services to prevent illegal content.
+
+## Events
 
 **Flounder** publishes cryptographically-verifiable events for the following topics on CABEZON's internal nwaku pub/sub messaging system:
 
-* /cab/1/lister.crosspost/proto
+* /cab/1/lister.crossposted/proto
 * /cab/1/lister.created/proto
 * /cab/1/lister.deleted/proto
 * /cab/1/lister.reported/proto
 
-These events are declared and parameters identified in the `lister.json` file published on flounder's CARP home page.
+These events are declared with parameters identified in the `lister.json` file published on flounder's CARP home page.
 
