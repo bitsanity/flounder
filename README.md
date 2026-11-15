@@ -26,7 +26,9 @@ The services include:
 * deletelisting : caller must be same agent that created it
 * reportlisting : for non-policy content, request removal, provide reasons
 
-**NOTE** : Flounder automatically verifies the payer's blockchain address and submitted content using one or more third-party services to prevent illegal content.
+**NOTE** : Flounder automatically verifies the payer's blockchain address and submitted content using one or more third-party services to prevent banned addresses from trading.
+
+**NOTE** : Flounder uses OpenAI's Moderation service to test text and images passed to createlisting. Flounder publishes 'lister.reported' events if flagged and glassfish includes in agent reputation scores.
 
 ## Events
 
